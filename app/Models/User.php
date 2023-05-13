@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -19,8 +20,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'gender',
         'email',
         'password',
+        'phone_number',
+        'province',
     ];
 
     /**
@@ -41,4 +45,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function store($request, $id = null)
+    {
+        $user = $request->only([
+            "name",
+            "gender",
+            "email",
+            "password",
+            "phone_number",
+            "province",
+        ]);
+        // PASSWORD INCREASE
+        $user["password"] = Hash::make($request->password);
+        // CONDITION
+        if ($id) {
+            $dataUser = self::updateOrCreate(["id" => $id], $user);
+        } else {
+            $dataUser = self::create($user);
+            $id = $dataUser->id;
+        }
+        return $dataUser;
+    }
 }
