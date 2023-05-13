@@ -6,6 +6,7 @@ use App\Http\Requests\EventStoreRequest;
 use App\Http\Resources\EventResource;
 use App\Http\Resources\ShowEventResource;
 use App\Models\Event;
+use App\Models\EventTeam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -43,7 +44,7 @@ class EventController extends Controller
                 "date" =>$request->input("date"),
                 "location" =>$request->input("location"),
                 "description" =>$request->input("description"),
-                "user_id" =>$request->input("user_id"),
+                "created_by" =>$request->input("user_id"),
             ]
         );
         return response()->json(["success" =>true, "data" =>$event],200);
@@ -54,5 +55,15 @@ class EventController extends Controller
     {
         $event = Event::find($id)->delete();
         return response()->json(["success" =>true, "data" =>$event],200);
+    }
+
+
+    // FUNTION EVENTTEAM
+    public function eventeam(){
+        $t = EventTeam::create([
+            "event_id" =>request("event_id"),
+            "team_id" =>request("team_id"),
+        ]);
+        return response()->json(["success" =>true, "data" =>$t],200);
     }
 }

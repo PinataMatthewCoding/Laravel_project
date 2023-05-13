@@ -19,6 +19,7 @@ class ShowTeamResource extends JsonResource
             "team_name"=>$this->team_name,
             "member"=>$this->member,
             "users"=>$this->user,
+            "event"=>$this->events,
         ];
     }
 }

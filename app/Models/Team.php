@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Team extends Model
 {
@@ -31,10 +32,14 @@ class Team extends Model
         }
         return $dataTeam;
     }
-    // RELATIONSHIP TABLE TEAM BOLOGN TO TABLE USER
+    // RELATIONSHIP TABLE TEAM BELOGN TO TABLE USER
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
-    // RELATIONSHIP TABLE 
+
+    // RELATIONSHIP TABLE TEAM BELONG TO TABLE EVENT
+    public function events(){
+        return  $this->belongsToMany(Event::class, "event_teams");
+    } 
 }

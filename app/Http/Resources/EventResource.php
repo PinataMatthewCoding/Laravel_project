@@ -21,6 +21,7 @@ class EventResource extends JsonResource
             "location"=>$this->location,
             "description"=>$this->description ?? null,
             "created_by"=>$this->user,
+            "team"=>$this->teams,
         ];
     }
 }

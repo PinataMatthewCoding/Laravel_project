@@ -20,6 +20,7 @@ class TeamResource extends JsonResource
             "member"=>$this->member,
             "team_id"=>$this->teams,
             "created_by"=>$this->user,
+            "event"=>$this->events,
         ];
     }
 }

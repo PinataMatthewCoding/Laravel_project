@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventTeamController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -38,3 +39,9 @@ Route::post("/team", [TeamController::class, "store"]);
 Route::get("/team/{id}", [TeamController::class, "show"]);
 Route::put("/team/{id}", [TeamController::class, "update"]);
 Route::delete("/team/{id}", [TeamController::class, "destroy"]);
+// API ROUTE OF EVENT_TEAM
+Route::post("/eventTeams", [EventController::class, "eventeam"]);
+// Route::post("/eventTeam", [EventTeamController::class, "store"]);
+// Route::get("/eventTeam/{id}", [EventTeamController::class, "show"]);
+// Route::put("/eventTeam/{id}", [EventTeamController::class, "update"]);
+// Route::delete("/eventTeam/{id}", [EventTeamController::class, "destroy"]);

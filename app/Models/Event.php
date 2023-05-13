@@ -40,4 +40,9 @@ class Event extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    // MANY TO MANY BETWEEN EVENT AND TEAM
+    public function teams(){
+        return  $this->belongsToMany(Team::class, "event_teams");
+    } 
 }
