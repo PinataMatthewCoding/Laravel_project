@@ -66,4 +66,11 @@ class EventController extends Controller
         ]);
         return response()->json(["success" =>true, "data" =>$t],200);
     }
+
+    // SEARCH NAME OF EVENT
+    public function searchEvent($name)
+    {
+        $events = Event::where("event_name",'like','%' .$name .'%')->get();
+        return $events;
+    }
 }

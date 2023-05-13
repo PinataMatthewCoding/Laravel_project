@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Event extends Model
 {
@@ -35,6 +36,7 @@ class Event extends Model
         }
         return $dataEvent;
     }
+    
     // RELATIONSHIP TABLE EVENT BELOGNSTO TABLE USER
     public function user(): BelongsTo
     {
@@ -45,4 +47,10 @@ class Event extends Model
     public function teams(){
         return  $this->belongsToMany(Team::class, "event_teams");
     } 
+
+    // RELATIONSHIP 1 EVENT HAS MANY TICKET
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }

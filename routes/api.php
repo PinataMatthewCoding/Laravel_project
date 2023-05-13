@@ -3,6 +3,7 @@
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\EventTeamController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -45,3 +46,11 @@ Route::post("/eventTeams", [EventController::class, "eventeam"]);
 // Route::get("/eventTeam/{id}", [EventTeamController::class, "show"]);
 // Route::put("/eventTeam/{id}", [EventTeamController::class, "update"]);
 // Route::delete("/eventTeam/{id}", [EventTeamController::class, "destroy"]);
+// API ROUTE OF TICKET
+Route::get("/tickets", [TicketController::class, "index"]);
+Route::post("/ticket", [TicketController::class, "store"]);
+Route::get("/ticket/{id}", [TicketController::class, "show"]);
+Route::put("/ticket/{id}", [TicketController::class, "update"]);
+Route::delete("/ticket/{id}", [TicketController::class, "destroy"]);
+// API ROUTE OF SEARCH NAME OF EVENT
+Route::get("/search/{name}",[EventController::class, "searchEvent"]);

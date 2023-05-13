@@ -78,4 +78,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Team::class);
     }
+    // RELATIONSHIP 1 USER HAS MANY TICKET
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
 }
