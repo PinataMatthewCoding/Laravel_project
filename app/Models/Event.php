@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Event extends Model
 {
@@ -13,6 +14,7 @@ class Event extends Model
         "date",
         "location",
         "description",
+        "user_id",
     ];
 
     public static function store($request, $id = null)
@@ -22,6 +24,7 @@ class Event extends Model
             "date",
             "location",
             "description",
+            "user_id",
         ]);
         // CONDITION
         if ($id) {
@@ -31,5 +34,10 @@ class Event extends Model
             $id = $dataEvent->id;
         }
         return $dataEvent;
+    }
+    // RELATIONSHIP TABLE EVENT BELOGNSTO TABLE USER
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

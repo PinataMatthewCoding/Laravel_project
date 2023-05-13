@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserStoreRequest;
+use App\Http\Resources\ShowUserResource;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,6 +17,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
+        $users = UserResource::collection($users);
         return response()->json(["success"=>true,"data"=>$users],200);
     }
 
@@ -29,6 +32,7 @@ class UserController extends Controller
     public function show(string $id)
     {
         $user = User::find($id);
+        $user = new ShowUserResource($user);
         return response()->json(["success" =>true, "data" =>$user],200);
     }
 

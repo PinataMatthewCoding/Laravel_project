@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\EventStoreRequest;
+use App\Http\Resources\EventResource;
+use App\Http\Resources\ShowEventResource;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -13,6 +15,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
+        $events = EventResource::collection($events);
         return response()->json(["success"=>true,"data"=>$events],200);
     }
 
@@ -27,6 +30,7 @@ class EventController extends Controller
     public function show(string $id)
     {
         $event = Event::find($id);
+        $event = new ShowEventResource($event);
         return response()->json(["success" =>true, "data" =>$event],200);
     }
 
@@ -39,6 +43,7 @@ class EventController extends Controller
                 "date" =>$request->input("date"),
                 "location" =>$request->input("location"),
                 "description" =>$request->input("description"),
+                "user_id" =>$request->input("user_id"),
             ]
         );
         return response()->json(["success" =>true, "data" =>$event],200);
