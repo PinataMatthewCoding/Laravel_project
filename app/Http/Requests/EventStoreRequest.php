@@ -2,11 +2,12 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UserStoreRequest extends FormRequest
+class EventStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,7 +22,7 @@ class UserStoreRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json(['success' => false, 'message' => $validator->errors()], 402));
     }
-    
+   
     /**
      * Get the validation rules that apply to the request.
      *
@@ -30,12 +31,10 @@ class UserStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" =>"required|min:5|max:10",
-            "email" =>"required|min:15|max:30",
-            "password" =>"required|min:8|max:15",
-            "age" =>"required|min:1|max:2",
-            "phone_number" =>"required|min:10",
-            "province" =>"required|min:5|max:120",
+            "event_name" =>"required|min:5|max:30",
+            "date" =>"required",
+            "location" =>"required|min:2|max:30",
+            "description" =>"required|min:10|max:255",
         ];
     }
 }

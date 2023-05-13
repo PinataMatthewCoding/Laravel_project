@@ -40,12 +40,10 @@ class UserController extends Controller
             "name" =>$request->input("name"),
             "gender" =>$request->input("gender"),
             "email" =>$request->input("email"),
-            "email" =>$request->input("email"),
             "password" =>Hash::make($request->password),
             "phone_number" => $request->input("phone_number"),
             "province" => $request->input("province"),
-        ]
-    );
+        ]);
         return response()->json(["success" =>true, "data" =>$user],200);
     }
 
