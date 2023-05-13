@@ -23,7 +23,9 @@ class ShowUserResource extends JsonResource
             "age"=>$this->age ?? null,
             "phone_number"=>$this->phone_number ?? null,
             "province"=>$this->province ?? null,
+            // WANT TO SEE WITCH USER CREATE EVENT AND TEAM
             "events"=>$this->events,
+            "teams"=>$this->teams,
         ];
     }
 }

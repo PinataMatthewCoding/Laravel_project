@@ -73,4 +73,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Event::class);
     }
+    // RELATIONSHIP 1 USER HAS MANY TEAM
+    public function teams(): HasMany
+    {
+        return $this->hasMany(Team::class);
+    }
 }
