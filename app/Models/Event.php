@@ -12,7 +12,8 @@ class Event extends Model
     use HasFactory;
     protected $fillable = [
         "event_name",
-        "date",
+        "start_date",
+        "end_date",
         "location",
         "description",
         "user_id",
@@ -23,6 +24,8 @@ class Event extends Model
         $event = $request->only([
             "event_name",
             "date",
+            "start_date",
+            "end_date",
             "location",
             "description",
             "user_id",

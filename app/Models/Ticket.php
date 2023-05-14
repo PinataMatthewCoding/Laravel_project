@@ -36,7 +36,7 @@ class Ticket extends Model
     }
 
     // RELATIONSHIP TABLE TICKET BELOGNSTO TABLE USER
-    public function user(): BelongsTo
+    public function tickets(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }

@@ -32,7 +32,8 @@ class EventStoreRequest extends FormRequest
     {
         return [
             "event_name" =>"required|min:5|max:30",
-            "date" =>"required",
+            "start_date" =>"required",
+            "end_date" =>"required",
             "location" =>"required|min:2|max:30",
             "description" =>"required|min:10|max:255",
             "user_id"=>"required",

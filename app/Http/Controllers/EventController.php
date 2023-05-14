@@ -41,7 +41,8 @@ class EventController extends Controller
         $event = Event::find($id)->update(
             [
                 "event_name" =>$request->input("event_name"),
-                "date" =>$request->input("date"),
+                "start_date" =>$request->input("start_date"),
+                "end_date" =>$request->input("end_date"),
                 "location" =>$request->input("location"),
                 "description" =>$request->input("description"),
                 "created_by" =>$request->input("user_id"),
@@ -57,8 +58,7 @@ class EventController extends Controller
         return response()->json(["success" =>true, "data" =>$event],200);
     }
 
-
-    // FUNTION EVENTTEAM
+    // FUNCTION EVENTTEAM
     public function eventeam(){
         $t = EventTeam::create([
             "event_id" =>request("event_id"),
@@ -67,7 +67,7 @@ class EventController extends Controller
         return response()->json(["success" =>true, "data" =>$t],200);
     }
 
-    // SEARCH NAME OF EVENT
+    // FUNCTION SEARCH NAME OF EVENT
     public function searchEvent($name)
     {
         $events = Event::where("event_name",'like','%' .$name .'%')->get();

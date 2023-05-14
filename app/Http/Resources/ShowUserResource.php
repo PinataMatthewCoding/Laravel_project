@@ -19,13 +19,13 @@ class ShowUserResource extends JsonResource
             "name"=>$this->name,
             "gender"=>$this->gender,
             "email"=>$this->email,
-            "password"=>$this->password ?? null,
-            "age"=>$this->age ?? null,
-            "phone_number"=>$this->phone_number ?? null,
-            "province"=>$this->province ?? null,
+            "password"=>$this->password,
+            "phone_number"=>$this->phone_number,
+            "province"=>$this->province,
             // WANT TO SEE WITCH USER CREATE EVENT AND TEAM
             "events"=>$this->events,
             "teams"=>$this->teams,
+            "tickets"=>$this->tickets,
         ];
     }
 }

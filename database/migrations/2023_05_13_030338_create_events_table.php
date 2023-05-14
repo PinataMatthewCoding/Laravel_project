@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string("event_name");
-            $table->date("date");
+            $table->dateTime("start_date");
+            $table->dateTime("end_date");
             $table->string("location");
             $table->string("description");
+
             $table->unsignedBigInteger("user_id");
             $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
 

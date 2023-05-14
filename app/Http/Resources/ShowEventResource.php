@@ -18,9 +18,11 @@ class ShowEventResource extends JsonResource
         [
             "id"=>$this->id,
             "event_name"=>$this->event_name,
-            "date"=>$this->date,
+            "start_date"=>$this->start_date,
+            "end_date"=>$this->end_date,
             "location"=>$this->location,
-            "description"=>$this->description ?? null,
+            "description"=>$this->description,
+            // WANT TO SEE 
             "users"=>$this->users,
             "team"=>$this->teams,
         ];
