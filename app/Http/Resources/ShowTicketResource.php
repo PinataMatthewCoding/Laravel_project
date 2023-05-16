@@ -18,8 +18,9 @@ class ShowTicketResource extends JsonResource
             "id"=>$this->id,
             "zone"=>$this->zone,
             "price"=>$this->price,
-            "user_id"=>$this->user,
+            // WANT TO SEE BUY_TICKET NAD EVENT IN TICKET TABLE
             "event_id"=>$this->event,
+            "buy_ticket"=>$this->users,
         ];
     }
 }

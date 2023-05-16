@@ -45,7 +45,7 @@ class EventController extends Controller
                 "end_date" =>$request->input("end_date"),
                 "location" =>$request->input("location"),
                 "description" =>$request->input("description"),
-                "created_by" =>$request->input("user_id"),
+                "created_by" =>$request->input("created_by"),
             ]
         );
         return response()->json(["success" =>true, "data" =>$event],200);

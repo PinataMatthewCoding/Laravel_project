@@ -22,7 +22,7 @@ class ShowUserResource extends JsonResource
             "password"=>$this->password,
             "phone_number"=>$this->phone_number,
             "province"=>$this->province,
-            // WANT TO SEE WITCH USER CREATE EVENT AND TEAM
+            // WANT TO SEE TICKET, EVENT AND TEAM IN USER TABLE
             "events"=>$this->events,
             "teams"=>$this->teams,
             "tickets"=>$this->tickets,

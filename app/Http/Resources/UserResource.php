@@ -23,6 +23,10 @@ class UserResource extends JsonResource
             "password"=>$this->password,
             "phone_number"=>$this->phone_number,
             "province"=>$this->province,
+            // WANT TO SEE TICKET, EVENT, AND TEAM IN USER TABLE
+            "tickets"=>$this->tickets,
+            "events"=>$this->events,
+            "teams"=>$this->teams,
         ];
     }
 }

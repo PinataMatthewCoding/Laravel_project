@@ -40,8 +40,8 @@ class TicketController extends Controller
             [
                 "zone" =>$request->input("zone"),
                 "price" =>$request->input("price"),
-                "user_id" =>$request->input("user_id"),
                 "event_id" =>$request->input("event_id"),
+                "buy_ticket" =>$request->input("buy_ticket"),
             ]
         );
         return response()->json(["success" =>true, "data" =>$ticket],200);

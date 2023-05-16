@@ -13,7 +13,8 @@ class Team extends Model
     protected $fillable = [
         "team_name",
         "member",
-        "user_id",
+        "gender",
+        "created_by",
     ];
 
     public static function store($request, $id = null)
@@ -21,7 +22,8 @@ class Team extends Model
         $team = $request->only([
             "team_name",
             "member",
-            "user_id",
+            "gender",
+            "created_by",
         ]);
         // CONDITION
         if ($id) {
@@ -35,7 +37,7 @@ class Team extends Model
     // RELATIONSHIP TABLE TEAM BELOGN TO TABLE USER
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'created_by','id');
     }
 
     // RELATIONSHIP TABLE TEAM BELONG TO TABLE EVENT

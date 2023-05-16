@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string("zone");
-            $table->integer("price");
-
-            $table->unsignedBigInteger("user_id");
-            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
+            $table->string("price");
 
             $table->unsignedBigInteger("event_id");
             $table->foreign("event_id")->references("id")->on("events")->onDelete("cascade");
+            $table->unsignedBigInteger("buy_ticket");
+            $table->foreign("buy_ticket")->references("id")->on("users")->onDelete("cascade");
 
             $table->timestamps();
         });

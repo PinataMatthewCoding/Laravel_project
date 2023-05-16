@@ -28,6 +28,23 @@ class User extends Authenticatable
         "province",
     ];
 
+    // // RELATIONSHIP 1 USER HAS MANY EVENTS
+    public function events(): HasMany
+    {
+        return $this->hasMany(Event::class,'created_by','id');
+    }
+    // RELATIONSHIP 1 USER HAS MANY TEAM
+    public function teams(): HasMany
+    {
+        return $this->hasMany(Team::class,'created_by','id');
+    }
+    
+    // // RELATIONSHIP 1 USER HAS MANY TICKET
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class,'buy_ticket','id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -67,20 +84,5 @@ class User extends Authenticatable
             $id = $dataUser->id;
         }
         return $dataUser;
-    }
-    // RELATIONSHIP 1 USER HAS MANY EVENTS
-    public function events(): HasMany
-    {
-        return $this->hasMany(Event::class);
-    }
-    // RELATIONSHIP 1 USER HAS MANY TEAM
-    public function teams(): HasMany
-    {
-        return $this->hasMany(Team::class);
-    }
-    // RELATIONSHIP 1 USER HAS MANY TICKET
-    public function tickets(): HasMany
-    {
-        return $this->hasMany(Ticket::class);
     }
 }

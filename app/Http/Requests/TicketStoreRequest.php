@@ -32,8 +32,8 @@ class TicketStoreRequest extends FormRequest
         return [
             "zone"=>"required|min:1|max:5",
             "price"=>"required|min:1|max:5",
-            "user_id"=>"required",
             "event_id"=>"required",
+            "buy_ticket"=>"required",
         ];
     }
 }

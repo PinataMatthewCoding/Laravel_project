@@ -28,9 +28,10 @@ class TeamStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "team_name" =>"required|min:5|max:30",
+            "team_name" =>"required|min:2|max:30",
             "member" =>"required|min:1|max:5",
-            "user_id" =>"required",
+            "gender" =>"required",
+            "created_by" =>"required",
         ];
     }
 }

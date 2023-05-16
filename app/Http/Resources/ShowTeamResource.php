@@ -18,7 +18,9 @@ class ShowTeamResource extends JsonResource
             "id"=>$this->id,
             "team_name"=>$this->team_name,
             "member"=>$this->member,
-            "users"=>$this->user,
+            "gender"=>$this->gender,
+            "created_by"=>$this->user,
+            // WANT TO SEE EVENT IN TEAM TABLE
             "event"=>$this->events,
         ];
     }

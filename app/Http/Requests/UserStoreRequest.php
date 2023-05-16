@@ -30,8 +30,8 @@ class UserStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "name" =>"required|min:5|max:10",
-            "email" =>"required|min:15|max:30",
+            "name" =>"required|min:5|max:10|unique:users",
+            "email" =>"required|min:15|max:30|unique:users",
             "password" =>"required|min:8|max:15",
             "phone_number" =>"required|min:10",
             "province" =>"required|min:5|max:120",

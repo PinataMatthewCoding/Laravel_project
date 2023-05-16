@@ -22,8 +22,8 @@ class ShowEventResource extends JsonResource
             "end_date"=>$this->end_date,
             "location"=>$this->location,
             "description"=>$this->description,
-            // WANT TO SEE 
-            "users"=>$this->users,
+            // WANT TO SEE CREATED_BY AND TEAM IN EVENT TABLE
+            "created-by"=>$this->user,
             "team"=>$this->teams,
         ];
     }

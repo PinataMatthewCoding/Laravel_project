@@ -36,7 +36,7 @@ class EventStoreRequest extends FormRequest
             "end_date" =>"required",
             "location" =>"required|min:2|max:30",
             "description" =>"required|min:10|max:255",
-            "user_id"=>"required",
+            "created_by"=>"required",
         ];
     }
 }

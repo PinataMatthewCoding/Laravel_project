@@ -16,7 +16,7 @@ class Event extends Model
         "end_date",
         "location",
         "description",
-        "user_id",
+        "created_by",
     ];
 
     public static function store($request, $id = null)
@@ -28,7 +28,7 @@ class Event extends Model
             "end_date",
             "location",
             "description",
-            "user_id",
+            "created_by",
         ]);
         // CONDITION
         if ($id) {
@@ -40,10 +40,10 @@ class Event extends Model
         return $dataEvent;
     }
     
-    // RELATIONSHIP TABLE EVENT BELOGNSTO TABLE USER
+    // // RELATIONSHIP TABLE EVENT BELOGNSTO TABLE USER
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'created_by','id');
     }
 
     // MANY TO MANY BETWEEN EVENT AND TEAM

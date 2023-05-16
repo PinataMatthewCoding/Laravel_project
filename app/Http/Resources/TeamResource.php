@@ -18,7 +18,9 @@ class TeamResource extends JsonResource
             "id"=>$this->id,
             "team_name"=>$this->team_name,
             "member"=>$this->member,
-            "team_id"=>$this->teams,
+            "gender"=>$this->gender,
+            "created-by"=>$this->user,
+            // WANT TO SEE CREATED_BY AND EVENT IN TEAM TABLE
             "created_by"=>$this->user,
             "event"=>$this->events,
         ];

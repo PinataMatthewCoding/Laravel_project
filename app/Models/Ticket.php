@@ -13,8 +13,8 @@ class Ticket extends Model
     protected $fillable = [
         "zone",
         "price",
-        "user_id",
         "event_id",
+        "buy_ticket"
     ];
 
     public static function store($request, $id = null)
@@ -22,8 +22,8 @@ class Ticket extends Model
         $ticket = $request->only([
             "zone",
             "price",
-            "user_id",
             "event_id",
+            "buy_ticket"
         ]);
         // CONDITION
         if ($id) {
@@ -36,9 +36,9 @@ class Ticket extends Model
     }
 
     // RELATIONSHIP TABLE TICKET BELOGNSTO TABLE USER
-    public function tickets(): BelongsTo
+    public function users(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'buy_ticket');
     }
 
     // RELATIONSHIP TABLE TICKET BELONGSTO TABLE EVENT
